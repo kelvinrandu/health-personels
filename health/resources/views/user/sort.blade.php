@@ -4,7 +4,6 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light portlet-fit ">
                                 <div class="portlet-title">
                                     <div class="caption">
@@ -50,32 +49,31 @@
                                                 <td> {{$row->facility_type}} </td>
                                                                                                               
                                                 <td>
-                                                <?php
+                                                @php
 
-                                                    $newEndingDate = date("Y-m-d", strtotime(date("Y-m-d", strtotime($time)) . " + 365 day"));      
-                                                ?>
+                                                    $deadLineDate = date("Y-m-d", strtotime(date("Y-m-d", strtotime($row->annual_license_date)) . " + 365 day"));                                                 
+ 
+                                                @endphp
 
-                                               
-                                                @if  ($row->facility_type )
-  
-                                                <a href="" class="btn green"> active </a>
-                                                {{ $time }}
-                                             
-                                              
+                                                @if  ($deadLineDate >=$now )
 
+                                                    <a href="" class="btn green"> active </a>
+
+                                                @else 
+
+                                                    <a href="" class="btn red"> expired </a> 
 
                                                 @endif
                                                     
-                                                    <!-- <a href="" class="btn red"> expired </a> -->
+                        
                                                 </td>
 
                                             </tr>
-                                            @endforeach
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            <!-- END EXAMPLE TABLE PORTLET-->
                         </div>
                     </div>
 

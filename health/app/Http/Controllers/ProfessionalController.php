@@ -13,16 +13,17 @@ use EnvatoUser;
 class ProfessionalController extends Controller
 {
 
+    //redirect to home
     public function index()
     {
-        return view('create');
-      
+        return view('create');    
         
     }
+
     // create professionals
     public function create(request $request)
     {
-    //checks for file upload(id picture)
+    //validate input from the form
         $this->validate($request,[
         'professional_name' => 'required',
         'id_number' => 'required',
@@ -50,7 +51,7 @@ class ProfessionalController extends Controller
       
     }
 
-    // show professionals
+    // show  individual professional record
     public function show($id)
     {
         $requests = Professional::find($id); 
@@ -59,7 +60,7 @@ class ProfessionalController extends Controller
     }
 
 
-    //update professionals
+    //update professional record
     public function update(Request $request, $id)
     {
         $this->validate($request,[
@@ -86,7 +87,7 @@ class ProfessionalController extends Controller
 
     }
 
-    //delete professionals
+    //delete professional record
     public function delete($id)
     {
         $record = Professional::find($id);
@@ -102,14 +103,8 @@ class ProfessionalController extends Controller
     {
 
         $requests = Professional::orderBy('facility_type')->get();  
-        $time = Carbon\Carbon::now(); 
-       
-   
-        $t = new EnvatoUser(); 
-        // return $t->diffForHumans($time);
-
-       
+        $now = Carbon\Carbon::now(); 
             
-        return view('user.sort', ['records' => $requests,'time' => $time]);
+        return view('user.sort', ['records' => $requests,'now' => $now]);
     }
 }
