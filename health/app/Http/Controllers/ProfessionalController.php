@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Professional;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Redirect;
 use Carbon;
 use EnvatoUser;
 
@@ -47,7 +49,7 @@ class ProfessionalController extends Controller
 
           ));
         $requests = Professional::all(); 
-        return view('user.list', ['records' => $requests]);
+        return view('user.list', ['records' => $requests])->with('success','proessional record added successfully');
       
     }
 
@@ -83,6 +85,8 @@ class ProfessionalController extends Controller
         $record->save();
         $requests = Professional::all(); 
         return view('user.list', ['records' => $requests]);
+        
+       
        
 
     }
@@ -94,7 +98,10 @@ class ProfessionalController extends Controller
         Professional::where('id', $id)->delete();
         $requests = Professional::all(); 
 
-        return view('user.list', ['records' => $requests]);       
+        return view('user.list', ['records' => $requests])->with('message','professional record updated successfuly'); 
+        
+ 
+          
    
     }
 

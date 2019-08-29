@@ -64,6 +64,7 @@
                         <label class="col-md-3 control-label">Facility type</label>
                         <div class="col-md-9">
                             <select name="facility" class="form-control">
+                                <option value="" disabled selected hidden>Select facility type</option>
                                 <option>Public</option>
                                 <option>Private</option>
                             </select>
