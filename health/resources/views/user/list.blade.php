@@ -4,10 +4,11 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                            @if(Session::has('message'))
-        <div class="alert alert-success"><em> {{ $message }}{!! session('message') !!}</em></div>
-    @endif
+                 
+                            @isset($message)
+                            <div class="alert alert-success"><em> {{ $message }}</em></div>
+@endisset
+
                             <div class="portlet light portlet-fit ">
                                 <div class="portlet-title">
                                     <div class="caption">

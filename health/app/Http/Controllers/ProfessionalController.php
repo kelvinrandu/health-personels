@@ -49,7 +49,7 @@ class ProfessionalController extends Controller
 
           ));
         $requests = Professional::all(); 
-        return view('user.list', ['records' => $requests])->with('success','proessional record added successfully');
+        return view('user.list', ['records' => $requests])->with('message','proessional record added successfully');
       
     }
 
@@ -84,7 +84,7 @@ class ProfessionalController extends Controller
         $record->facility_type =$request->input('facility');
         $record->save();
         $requests = Professional::all(); 
-        return view('user.list', ['records' => $requests]);
+        return view('user.list', ['records' => $requests])->with('message','professional record updated successfuly');
         
        
        
@@ -98,7 +98,7 @@ class ProfessionalController extends Controller
         Professional::where('id', $id)->delete();
         $requests = Professional::all(); 
 
-        return view('user.list', ['records' => $requests])->with('message','professional record updated successfuly'); 
+        return view('user.list', ['records' => $requests])->with('message','professional record deleted successfuly'); 
         
  
           
