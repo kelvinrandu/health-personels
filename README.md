@@ -17,6 +17,8 @@ A user has the priviledge to do the following:
 ## LINK TO LIVE SITE
 coming soon
 
+## DOCUMENTATION
+- [Laravel official site](https://laravel.com/)
 
 ## RUNNING THE APPLICATION
 - install  [composer](https://getcomposer.org/) 
@@ -32,5 +34,6 @@ coming soon
 - run the application
 ``` $ php artisan serve```
 
-
+## ENQUIRIES
+- for clarifications,enquiries or questions you can contact the developer through randukelvin@gmail.com
 
