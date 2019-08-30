@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Redirect;
 use Carbon;
-use EnvatoUser;
 
 
 class ProfessionalController extends Controller
@@ -84,10 +83,7 @@ class ProfessionalController extends Controller
         $record->facility_type =$request->input('facility');
         $record->save();
         $requests = Professional::all(); 
-        return view('user.list', ['records' => $requests])->with('message','professional record updated successfuly');
-        
-       
-       
+        return view('user.list', ['records' => $requests])->with('message','professional record updated successfuly');      
 
     }
 
@@ -99,9 +95,7 @@ class ProfessionalController extends Controller
         $requests = Professional::all(); 
 
         return view('user.list', ['records' => $requests])->with('message','professional record deleted successfuly'); 
-        
- 
-          
+                
    
     }
 

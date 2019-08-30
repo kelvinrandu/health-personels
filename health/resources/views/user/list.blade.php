@@ -3,12 +3,10 @@
 @section('content')
 
                     <div class="row">
-                        <div class="col-md-12">
-                 
+                        <div class="col-md-12">                
                             @isset($message)
                             <div class="alert alert-success"><em> {{ $message }}</em></div>
-@endisset
-
+                           @endisset
                             <div class="portlet light portlet-fit ">
                                 <div class="portlet-title">
                                     <div class="caption">
